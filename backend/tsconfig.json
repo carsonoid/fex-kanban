@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "ES5",
+    "module": "CommonJS",
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*.ts",
+    "../shared/**/*.ts", "boards.super.test.ts",
+  ]
+}
