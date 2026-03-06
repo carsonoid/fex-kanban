@@ -1,0 +1,15 @@
+@host=http://localhost:3000
+###
+POST /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8
+content-type: application/json
+
+{"name":"test-board", "description":"board with manual id"}
+###
+POST /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8/columns/63b24856-8110-4484-911b-cd1a03f5c730
+content-type: application/json
+
+{
+    "name": "test-column"
+}
+###
+GET /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8

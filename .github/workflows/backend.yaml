@@ -1,0 +1,37 @@
+on:
+  push:
+    paths:
+      - backend/**
+name: "Backend"
+jobs:
+  cicd:
+    name: "CICD"
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - "54645:5432"
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 8
+          cache: true
+          run_install: true
+          run_install.cwd: backend
+      - name: Run Tests
+        run: |
+          cd backend
+          echo "::group::DB Migrations"
+          DATABASE_URL=postgres://postgres:postgres@localhost:54645/postgres pnpm run migrate up
+          echo "::endgroup::"
+
+          echo "::group::Tests"
+          pnpm run test
+          echo "::endgroup::"

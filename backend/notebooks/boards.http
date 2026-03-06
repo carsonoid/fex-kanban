@@ -1,0 +1,22 @@
+@host=http://localhost:3000
+###
+POST /api/boards
+content-type: application/json
+
+{"name":"test", "description":"testd"}
+###
+POST /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8
+content-type: application/json
+
+{"name":"test-board", "description":"board with manual id"}
+###
+GET /api/boards
+###
+GET /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8
+###
+PUT /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8
+content-type: application/json
+
+{"name":"testnew", "description":"descrnew"}
+###
+DELETE /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8

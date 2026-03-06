@@ -1,0 +1,88 @@
+@host=http://localhost:3000
+###
+# Create a board
+
+POST /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8
+content-type: application/json
+
+{"name":"test-board", "description":"board with manual id"}
+###
+# Create a column
+
+POST /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8/columns/63b24856-8110-4484-911b-cd1a03f5c730
+content-type: application/json
+
+{
+    "name": "test-column"
+}
+###
+# Create a card
+
+POST /api/cards/63b24856-8110-4484-911b-cd1a03f5c730
+content-type: application/json
+
+{
+    "column_id": "63b24856-8110-4484-911b-cd1a03f5c730",
+    "name": "test card",
+    "description": "a sample card"
+}
+###
+# Get a card
+
+GET /api/cards/63b24856-8110-4484-911b-cd1a03f5c730
+###
+# Update a card
+
+PUT /api/cards/63b24856-8110-4484-911b-cd1a03f5c730
+content-type: application/json
+
+{
+    "name": "new card name",
+    "description": "new card description"
+}
+###
+# Create a subtask with a given id
+
+POST /api/cards/63b24856-8110-4484-911b-cd1a03f5c730/subtasks/d4c8ed66-8b46-4d53-8ae7-c1b7faa2749d
+content-type: application/json
+
+{
+    "name": "subtask name",
+    "completed": false
+}
+###
+# Update a subtask
+
+PUT /api/cards/63b24856-8110-4484-911b-cd1a03f5c730/subtasks/d4c8ed66-8b46-4d53-8ae7-c1b7faa2749d
+content-type: application/json
+
+{
+    "name": "new subtask name",
+    "completed": true
+}
+###
+# Delete a subtask
+
+DELETE /api/cards/63b24856-8110-4484-911b-cd1a03f5c730/subtasks/d4c8ed66-8b46-4d53-8ae7-c1b7faa2749d
+###
+# Create a label with a given id
+
+POST /api/cards/63b24856-8110-4484-911b-cd1a03f5c730/labels/a1b2c3d4-5678-90ab-cdef-123456789abc
+content-type: application/json
+
+{
+    "name": "bug"
+}
+###
+# Update a label
+
+PUT /api/cards/63b24856-8110-4484-911b-cd1a03f5c730/labels/a1b2c3d4-5678-90ab-cdef-123456789abc
+content-type: application/json
+
+{
+    "name": "feature"
+}
+###
+# Delete a label
+
+DELETE /api/cards/63b24856-8110-4484-911b-cd1a03f5c730/labels/a1b2c3d4-5678-90ab-cdef-123456789abc
