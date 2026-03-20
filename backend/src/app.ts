@@ -17,6 +17,16 @@ app.use(
   })
 );
 
+// CORS Headers
+//   - lazy * values since this is just a sample project
+app.use((_request: Request, response: Response, next) => {
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Methods", "*");
+  response.setHeader("Access-Control-Allow-Headers", "*");
+  response.setHeader("Access-Control-Max-Age", "86400");
+  next();
+});
+
 // require a body for post endpoints
 app.use((request: Request, response: Response, next) => {
   if (request.method === "POST" && !request.body)

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FEX Kanban</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Boards</h1>
+    <div id="add-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Add a Board</h2>
+
+        <label>Name</label>
+        <input type="text" id="createName" value="name" /> <br />
+        <label>Description</label>
+        <input type="text" id="createDescription" value="description" />
+        <br />
+        <button id="submitBoard">Create</button>
+      </div>
+    </div>
+    <main>
+      <button id="create">Create Board</button>
+      <div id="boards"></div>
+    </main>
+  </body>
+</html>
