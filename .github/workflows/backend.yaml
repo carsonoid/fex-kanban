@@ -22,7 +22,6 @@ jobs:
         name: Install pnpm
         with:
           version: 8
-          cache: true
           run_install: true
           run_install.cwd: backend
       - name: Run Tests
