@@ -3,7 +3,7 @@
 POST /api/boards
 content-type: application/json
 
-{"name":"test", "description":"testd"}
+{"name":"test", "description":"A test board"}
 ###
 POST /api/boards/17b894d8-dc74-4c60-a6c0-21a3cb3ee0f8
 content-type: application/json
